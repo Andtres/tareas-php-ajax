@@ -1,14 +1,26 @@
-$(document).ready(function(){
+$(document).ready(function() {
     console.log('Esta funcionando');
-    $('#search').keyup(function(e){
-        search = $('#search').val();
+    $('#search').keyup(function(){
+        let search = $('#search').val();
+        //console.log(search);
         $.ajax({
-            url: 'tareasServidor.php',
+            url: 'servidor.php',        
+            data: { search  },
             type: 'POST',
-            date: {search},
             success: function(response){
-                console.log(response);
+                
+                let tarea= JSON.parse(response);
+                let plantilla = '';
+                tarea.forEach(tarea => {
+                    plantilla += `
+                    <li>
+                        s{tarea.nombre}
+                    </li>
+                    
+                    `
+                });
             }
         });
     });
 });
+

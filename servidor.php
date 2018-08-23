@@ -1,8 +1,11 @@
 <?php
     require ('database.php');
-    $search = $_POST['search'];
-    if(!empty($search)){//si no esta vacio
-        $sql="SELECT * FROM tareas WHERE nombre LIKE '$search%'";
+    
+    //
+    //echo 1;
+    if(!empty($_POST['search'])){//si no esta vacio
+        $search = $_POST['search'];
+        $sql="SELECT * FROM tareas WHERE nombre LIKE '%$search%'";
         $result= mysqli_query($conn, $sql);
         if(!$result){//si no se recibe nada
             die('Error de consulta' . mysqli_error($conn));
@@ -15,6 +18,11 @@
                 'descripcion' => $row['descripcion']
             );
         }
+       // $json=mysqli_fetch_all($result);
         echo $jsonString = json_encode($json);
-        //echo $jsonString;
+        
+    }else{
+        echo '';
     }
+
+    
