@@ -1,6 +1,7 @@
 <?php
     require ('database.php');
     
+    
     //
     //echo 1;
     if(!empty($_POST['search'])){//si no esta vacio

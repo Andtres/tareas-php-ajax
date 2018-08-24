@@ -21,9 +21,10 @@
             <div class="col-md-5">
                 <div class="card">
                     <div class="card-body">
-                        <form id="task-form">
+                        <form id="tarea-formu">
                             <div class="form-group"><!--Agrega separacion entre inputs-->
-                                <input type="text" name="" id="name" placeholder="Nombre de la tarea" class="form-control">
+                                <input type="hidden" id="tareaid" value="">
+                                <input type="text" name="" id="nombre" placeholder="Nombre de la tarea" class="form-control">
                             </div>
                             <div class="form-group">
                                 <textarea id="description" cols="30" rows="10" class="form-control" placeholder="Descripcion"></textarea>
@@ -34,6 +35,11 @@
                 </div>
             </div>
             <div class="col-md-7">
+                <div class="card my-4" id="tareResultados">
+                    <div class="card-body">
+                        <ul id="container"></ul>
+                    </div>
+                </div>
                 <table class="table table-bordered table-sm">
                     <thead>
                         <tr>
